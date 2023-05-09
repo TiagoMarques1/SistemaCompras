@@ -31,7 +31,7 @@ namespace SistemaCompra.Application.RegistrarCompra.Command
             solictacao.RegistrarCompra(solictacao.Itens);
             solictacao.ValidandoValorGeral(request.TotalGeral);
 
-            _solicitacaoCompraRepository.RegistrarCompra(solictacao);
+            //_solicitacaoCompraRepository.RegistrarCompra(solictacao);
 
             return Task.FromResult(true);
 

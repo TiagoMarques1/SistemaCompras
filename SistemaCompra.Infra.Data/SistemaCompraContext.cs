@@ -15,7 +15,7 @@ namespace SistemaCompra.Infra.Data
         public SistemaCompraContext(DbContextOptions options) : base(options) { }
         public DbSet<ProdutoAgg.Produto> Produtos { get; set; }
         public DbSet<SolicitacaoAgg.SolicitacaoCompra> SolicitacaoCompras { get; set; }
-        public DbSet<CondicaoPagamento> CondicaoPagamentos { get; set; }
+        public DbSet<SolicitacaoAgg.Item> Items { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -31,7 +31,7 @@ namespace SistemaCompra.Infra.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseLoggerFactory(loggerFactory)  
+            optionsBuilder.UseLoggerFactory(loggerFactory)
                 .EnableSensitiveDataLogging()
                 .UseSqlServer(@"Server=DESKTOP-7B748A6\\SQLEXPRESS01;Database=TriscalDb;Integrated Security=True;trustServerCertificate=true");
         }

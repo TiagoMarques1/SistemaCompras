@@ -1,7 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using SolicitacaoAgg = SistemaCompra.Domain.SolicitacaoCompraAggregate;
 
 namespace SistemaCompra.Infra.Data.SolicitacaoCompra
@@ -10,8 +7,15 @@ namespace SistemaCompra.Infra.Data.SolicitacaoCompra
     {
         public void Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<SolicitacaoAgg.SolicitacaoCompra> builder)
         {
-            builder.ToTable("SolicitacaoCompra")
-                .HasKey(x => x.Id);
+            builder.ToTable("SolicitacaoCompra");
+            builder.HasKey(x => x.Id);
+
+            builder.OwnsOne(p => p.CondicaoPagamento)
+                            .Property(p => p.Valor).HasColumnType("INT").HasColumnName("CondicaoPagamento_Valor").IsRequired();
+
+            
         }
     }
+
+
 }

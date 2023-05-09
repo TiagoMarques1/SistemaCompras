@@ -11,9 +11,9 @@ namespace SistemaCompra.Domain.SolicitacaoCompraAggregate
     {
         public UsuarioSolicitante UsuarioSolicitante { get; private set; }
         public NomeFornecedor NomeFornecedor { get; private set; }
-        public IList<Item> Itens { get; private set; }
         public DateTime Data { get; private set; }
         public Money TotalGeral { get; private set; }
+        public IList<Item> Itens { get; private set; }
         public Situacao Situacao { get; private set; }
         public CondicaoPagamento CondicaoPagamento { get; private set; }
 
@@ -45,7 +45,8 @@ namespace SistemaCompra.Domain.SolicitacaoCompraAggregate
 
         public void ValidandoValorGeral(int totalGeral)
         {
-            if (totalGeral > 50000)
+            TotalGeral = new Money(totalGeral);
+            if (totalGeral > 5000)
             {
                 CondicaoPagamento.CondicaoParaPagamento(30);
             }
