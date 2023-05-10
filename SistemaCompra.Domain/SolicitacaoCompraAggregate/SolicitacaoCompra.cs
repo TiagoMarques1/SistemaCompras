@@ -3,6 +3,7 @@ using SistemaCompra.Domain.Core.Model;
 using SistemaCompra.Domain.ProdutoAggregate;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 
 namespace SistemaCompra.Domain.SolicitacaoCompraAggregate
@@ -10,10 +11,20 @@ namespace SistemaCompra.Domain.SolicitacaoCompraAggregate
     public class SolicitacaoCompra : Entity
     {
         public UsuarioSolicitante UsuarioSolicitante { get; private set; }
+
+        [ForeignKey("NomeUsuario")]
+        public Guid IdUsuarioSolicitante { get; private set; }
         public NomeFornecedor NomeFornecedor { get; private set; }
+
+        [ForeignKey("NomeFornecedor")]
+        public Guid IdNomeFornecedor { get; private set; }
         public DateTime Data { get; private set; }
         public Money TotalGeral { get; private set; }
         public IList<Item> Itens { get; private set; }
+
+        [ForeignKey("IdItens")]
+        public Guid IdItens { get; private set; }
+
         public Situacao Situacao { get; private set; }
         public CondicaoPagamento CondicaoPagamento { get; private set; }
 

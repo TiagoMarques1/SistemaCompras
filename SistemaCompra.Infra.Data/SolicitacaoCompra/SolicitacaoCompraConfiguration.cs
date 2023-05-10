@@ -13,7 +13,7 @@ namespace SistemaCompra.Infra.Data.SolicitacaoCompra
             builder.OwnsOne(p => p.CondicaoPagamento)
                             .Property(p => p.Valor).HasColumnType("INT").HasColumnName("CondicaoPagamento_Valor").IsRequired();
 
-            
+
         }
     }
 

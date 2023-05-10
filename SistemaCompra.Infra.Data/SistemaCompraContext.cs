@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using SistemaCompra.Domain.Core;
-using SistemaCompra.Domain.SolicitacaoCompraAggregate;
 using SistemaCompra.Infra.Data.Produto;
 using ProdutoAgg = SistemaCompra.Domain.ProdutoAggregate;
 using SolicitacaoAgg = SistemaCompra.Domain.SolicitacaoCompraAggregate;
@@ -16,6 +15,8 @@ namespace SistemaCompra.Infra.Data
         public DbSet<ProdutoAgg.Produto> Produtos { get; set; }
         public DbSet<SolicitacaoAgg.SolicitacaoCompra> SolicitacaoCompras { get; set; }
         public DbSet<SolicitacaoAgg.Item> Items { get; set; }
+        public DbSet<SolicitacaoAgg.NomeFornecedor> NomeFornecedors { get; set; }
+        public DbSet<SolicitacaoAgg.UsuarioSolicitante> UsuarioSolicitantes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

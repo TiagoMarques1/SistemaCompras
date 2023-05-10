@@ -9,6 +9,7 @@ namespace SistemaCompra.Domain.SolicitacaoCompraAggregate
     public class UsuarioSolicitante : ValueObject<UsuarioSolicitante>
     {
         public string Nome { get; }
+        public Guid Id { get; set; }
 
         private UsuarioSolicitante() { }
 
